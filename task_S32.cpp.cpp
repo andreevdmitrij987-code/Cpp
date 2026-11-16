@@ -1,17 +1,24 @@
 #include <iostream>
+#include <cstring>
 #include <clocale>
 using namespace std;
-
-double squared_sum(double a, double b) {
-    double sum = a + b;
-    return sum * sum;
-}
 
 int main() {
     setlocale(0, "Russian");
 
-    cout << squared_sum(12, 6) << "\n";   // 324
-    cout << squared_sum(12, -6) << "\n";  // 36
+    char str[256];
+    cout << "¬ведите строку: ";
+    cin.getline(str, 256);
+
+    int len = strlen(str);
+
+    char* ptr = str;
+
+    for (int i = 0; i < len; i++) {
+        *(ptr + i) = *(ptr + i) + 1;
+    }
+
+    cout << "–езультат: " << str << endl;
 
     return 0;
 }
